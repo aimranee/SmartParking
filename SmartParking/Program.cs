@@ -1,3 +1,5 @@
+using MySqlConnector;
+
 namespace SmartParking
 {
     internal static class Program
@@ -12,6 +14,22 @@ namespace SmartParking
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
+        }
+
+        public static MySqlConnection GetConnection()
+        {
+            string sql = "datasource=localhost;port=3306;username=root;password=;database=smartparking";
+            MySqlConnection cnn = new MySqlConnection(sql);
+
+            try
+            {
+                cnn.Open();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Can not open connection ! \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return cnn;
         }
     }
 }

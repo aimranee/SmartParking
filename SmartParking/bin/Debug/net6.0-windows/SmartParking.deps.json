@@ -6,6 +6,14 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
+      "SmartParking/1.0.0": {
+        "dependencies": {
+          "MySqlConnector": "2.2.5"
+        },
+        "runtime": {
+          "SmartParking.dll": {}
+        }
+      },
       "MySqlConnector/2.2.5": {
         "runtime": {
           "lib/net6.0/MySqlConnector.dll": {
@@ -17,6 +25,11 @@
     }
   },
   "libraries": {
+    "SmartParking/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "MySqlConnector/2.2.5": {
       "type": "package",
       "serviceable": true,
