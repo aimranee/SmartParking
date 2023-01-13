@@ -42,6 +42,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::SmartParking.Properties.Resources.icons8_delivery_truck_96;
             this.pictureBox1.Location = new System.Drawing.Point(32, 67);
             this.pictureBox1.Name = "pictureBox1";
@@ -52,6 +53,7 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = global::SmartParking.Properties.Resources.icons8_automobile_96;
             this.pictureBox2.Location = new System.Drawing.Point(155, 67);
             this.pictureBox2.Name = "pictureBox2";
@@ -62,6 +64,7 @@
             // 
             // pictureBox3
             // 
+            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox3.Image = global::SmartParking.Properties.Resources.icons8_motorcycle_961;
             this.pictureBox3.Location = new System.Drawing.Point(282, 67);
             this.pictureBox3.Name = "pictureBox3";
@@ -73,6 +76,7 @@
             // 
             // pictureBox4
             // 
+            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox4.Image = global::SmartParking.Properties.Resources.icons8_bicycle_96;
             this.pictureBox4.Location = new System.Drawing.Point(403, 67);
             this.pictureBox4.Name = "pictureBox4";
@@ -83,6 +87,7 @@
             // 
             // pictureBox5
             // 
+            this.pictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox5.Image = global::SmartParking.Properties.Resources.icons8_assistive_technology_96;
             this.pictureBox5.Location = new System.Drawing.Point(523, 67);
             this.pictureBox5.Name = "pictureBox5";

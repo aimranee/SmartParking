@@ -18,3 +18,4 @@ C:\Users\aimra\source\repos\SmartParking\SmartParking\obj\Debug\net6.0-windows\r
 C:\Users\aimra\source\repos\SmartParking\SmartParking\obj\Debug\net6.0-windows\SmartParking.Properties.Resources.resources
 C:\Users\aimra\source\repos\SmartParking\SmartParking\bin\Debug\net6.0-windows\MySqlConnector.dll
 C:\Users\aimra\source\repos\SmartParking\SmartParking\obj\Debug\net6.0-windows\SmartParking.csproj.CopyComplete
+C:\Users\aimra\source\repos\SmartParking\SmartParking\obj\Debug\net6.0-windows\SmartParking.Views.Form2.resources

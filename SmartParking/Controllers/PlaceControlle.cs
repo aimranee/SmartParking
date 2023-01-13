@@ -1,12 +1,6 @@
 ﻿using MySqlConnector;
 using SmartParking.Models;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace SmartParking.Controllers
 {
@@ -86,6 +80,27 @@ namespace SmartParking.Controllers
 
             }
             cnn.Close();
+        }
+
+        public static List<Place> afficher()
+        {
+            List<Place> placeList = new List<Place>();
+            string sql = "SELECT * from place";
+            MySqlCommand cmd = new MySqlCommand(sql, cnn);
+            cmd.CommandType = CommandType.Text;
+            try
+            {
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                    placeList.Add(new Place(int.Parse(reader["id"].ToString()), reader["code"].ToString(), int.Parse(reader["status"].ToString()), reader["type"].ToString()));
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Device not deleted. \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            cnn.Close();
+            return placeList;
         }
     }
 }
