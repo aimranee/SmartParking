@@ -10,6 +10,7 @@ namespace SmartParking.Controllers
         //id	code	status	type	
         public static void AjouterPlace(Place user)
         {
+            cnn.Open();
             string sql = "INSERT INTO place VALUES (null, @code, @status, @type)";
 
             MySqlCommand cmd = new MySqlCommand(sql, cnn);
@@ -34,7 +35,8 @@ namespace SmartParking.Controllers
         }
         public static void UpdatePlace(Place user, string id)
         {
-            string sql = "UPDATE place SET code=@code, status=@status, typerole=@type WHERE id = @id ";
+            cnn.Open(); 
+            string sql = "UPDATE place SET code=@code, status=@status, type=@type WHERE id = @id ";
 
             MySqlCommand cmd = new MySqlCommand(sql, cnn);
             cmd.CommandType = CommandType.Text;
@@ -61,6 +63,7 @@ namespace SmartParking.Controllers
 
         public static void SupprimerPlace(string idC)
         {
+            cnn.Open();
             string sql = "DELETE FROM place WHERE id = @id ";
 
             MySqlCommand cmd = new MySqlCommand(sql, cnn);

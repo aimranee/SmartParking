@@ -10,12 +10,13 @@ namespace SmartParking.Controllers
         public static void AjouterReservation(Reservation reservation)
         {
             
-            string sql = "INSERT INTO reservation VALUES (@id, @matricule,@ownername, @model, @type, @prix, @dateEnreg, @ownerCin)";
+            string sql = "INSERT INTO reservation VALUES (null, @placeId, @matricule,@ownername, @model, @type, @prix, @dateEnreg, @ownerCin)";
 
             MySqlCommand cmd = new MySqlCommand(sql, cnn);
             cmd.CommandType = CommandType.Text;
-            cmd.Parameters.Add("@id", MySqlDbType.VarChar).Value = reservation.Id;
+            //cmd.Parameters.Add("@id", MySqlDbType.VarChar).Value = reservation.Id;
             cmd.Parameters.Add("@matricule", MySqlDbType.VarChar).Value = reservation.Matricule;
+            cmd.Parameters.Add("@placeId", MySqlDbType.VarChar).Value = reservation.PlaceId.Id;
             cmd.Parameters.Add("@ownername", MySqlDbType.VarChar).Value = reservation.Ownername;
             cmd.Parameters.Add("@model", MySqlDbType.VarChar).Value = reservation.Model;
             cmd.Parameters.Add("@type", MySqlDbType.VarChar).Value = reservation.Type;

@@ -1,4 +1,5 @@
 using MySqlConnector;
+using SmartParking.Views;
 
 namespace SmartParking
 {
@@ -13,7 +14,7 @@ namespace SmartParking
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.Run(new Form3());
         }
 
         public static MySqlConnection GetConnection()

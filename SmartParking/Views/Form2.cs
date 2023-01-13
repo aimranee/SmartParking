@@ -21,7 +21,7 @@ namespace SmartParking.Views
         public Form2(Form1 prunt)
         {
             InitializeComponent();
-            this._prunt = prunt;
+            _prunt = prunt;
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)

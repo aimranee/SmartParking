@@ -25,7 +25,6 @@ namespace SmartParking.Controllers
             cmd.Parameters.Add("@adresse", MySqlDbType.VarChar).Value = reservation.Adresse;
             cmd.Parameters.Add("@contact", MySqlDbType.VarChar).Value = reservation.Contact;
             
-
             try
             {
                 cmd.ExecuteNonQuery();
@@ -73,17 +72,14 @@ namespace SmartParking.Controllers
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.Add("@id", MySqlDbType.VarChar).Value = idC; ;
 
-
             try
             {
                 cmd.ExecuteNonQuery();
                 MessageBox.Show(" supprimer aves success.", "Inforamtion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(" n'est pas supprimer ! \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
             cnn.Close();
         }
