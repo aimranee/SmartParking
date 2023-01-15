@@ -30,9 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -83,25 +81,15 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.textBox3);
             this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.label4);
             this.panel1.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.panel1.Location = new System.Drawing.Point(24, 118);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(250, 189);
+            this.panel1.Size = new System.Drawing.Size(250, 137);
             this.panel1.TabIndex = 2;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(47, 149);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(149, 23);
-            this.textBox3.TabIndex = 9;
             // 
             // textBox2
             // 
@@ -110,16 +98,6 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(149, 23);
             this.textBox2.TabIndex = 8;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(44, 132);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(42, 15);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Color :";
             // 
             // label5
             // 
@@ -166,7 +144,7 @@
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.textBox4);
             this.panel2.Controls.Add(this.label8);
-            this.panel2.Location = new System.Drawing.Point(329, 118);
+            this.panel2.Location = new System.Drawing.Point(368, 118);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(231, 137);
             this.panel2.TabIndex = 4;
@@ -210,7 +188,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(345, 109);
+            this.label7.Location = new System.Drawing.Point(384, 109);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(120, 15);
             this.label7.TabIndex = 5;
@@ -229,7 +207,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(228, 494);
+            this.button1.Location = new System.Drawing.Point(238, 461);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(130, 32);
             this.button1.TabIndex = 10;
@@ -259,9 +237,9 @@
             this.panel3.Controls.Add(this.label12);
             this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.labelCost);
-            this.panel3.Location = new System.Drawing.Point(24, 330);
+            this.panel3.Location = new System.Drawing.Point(24, 292);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(400, 147);
+            this.panel3.Size = new System.Drawing.Size(439, 147);
             this.panel3.TabIndex = 12;
             // 
             // nbrHours
@@ -349,7 +327,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(39, 320);
+            this.label2.Location = new System.Drawing.Point(39, 282);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(133, 15);
             this.label2.TabIndex = 13;
@@ -362,7 +340,7 @@
             this.panel4.Controls.Add(this.textBox6);
             this.panel4.Controls.Add(this.label17);
             this.panel4.Controls.Add(this.label13);
-            this.panel4.Location = new System.Drawing.Point(430, 330);
+            this.panel4.Location = new System.Drawing.Point(469, 292);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(130, 147);
             this.panel4.TabIndex = 14;
@@ -405,7 +383,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(445, 320);
+            this.label10.Location = new System.Drawing.Point(484, 282);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(51, 15);
             this.label10.TabIndex = 15;
@@ -416,7 +394,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(589, 538);
+            this.ClientSize = new System.Drawing.Size(626, 517);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.label2);
@@ -448,9 +426,7 @@
 
         private Label label1;
         private Panel panel1;
-        private TextBox textBox3;
         private TextBox textBox2;
-        private Label label6;
         private Label label5;
         private TextBox textBox1;
         private Label label4;

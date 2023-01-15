@@ -10,7 +10,6 @@ namespace SmartParking.Controllers
         public static MySqlConnection cnn = Program.GetConnection();
         public static void AjouterReservation(Reservation reservation)
         {
-            
             string sql = "INSERT INTO reservation VALUES (null, @placeId, @matricule,@ownername, @model, @type, @prix, @dateEnreg, @ownerCin, @status)";
 
             MySqlCommand cmd = new MySqlCommand(sql, cnn);
@@ -93,17 +92,22 @@ namespace SmartParking.Controllers
 
         public static Reservation CurrentRes(Place p)
         {
-            Reservation rs = null;
-            string sql = "SELECT * FROM reservation WHERE placeId = '1' and status = 'en coure'";
-            MySqlCommand cmd = new MySqlCommand(sql, cnn);
-
+            //cnn.Open();
+            Reservation rs = new Reservation();
+            string sql = "SELECT * FROM reservation WHERE placeId = "+p.Id+" and status = 'en coure'";
+            MySqlCommand cmd = new MySqlCommand(sql, Program.GetConnection());
+            
+            cmd.CommandType = CommandType.Text;
             try
             {
+                
                 MySqlDataReader reader = cmd.ExecuteReader();
+
                 while (reader.Read())
-                {
-                    rs = new Reservation(Int32.Parse(reader["id"].ToString()), p, reader["matricule"].ToString(), reader["ownername"].ToString(), reader["model"].ToString(), reader["type"].ToString(), reader["prix"].ToString(), reader["dateEnreg"].ToString(), reader["owenerCin"].ToString(), reader["status"].ToString());
-                }
+                    rs = new Reservation(Int32.Parse(reader["id"].ToString()), p, reader["matricule"].ToString(), reader["ownername"].ToString(), reader["model"].ToString(), reader["type"].ToString(), reader["prix"].ToString(), Convert.ToDateTime(reader["dateEnreg"].ToString()), reader["owenerCin"].ToString(), reader["status"].ToString());
+
+                //rs = new Reservation(Int32.Parse(reader.GetString("id")), p, reader.GetString("matricule"), reader.GetString("ownername"), reader.GetString("model"), reader.GetString("type"), reader.GetString("prix"), reader.GetDateTime("dateEnreg"), reader.GetString("owenerCin"), reader.GetString("status"));
+
             }
             catch
             {

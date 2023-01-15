@@ -15,9 +15,13 @@ namespace SmartParking.Models
         private string model;
         private string type;
         private string prix;
-        private string dateEnreg;
+        private DateTime dateEnreg;
         private string owenerCin;
         private string status;
+
+        public Reservation()
+        {
+        }
 
         public int Id { get => id; set => id = value; }
         public string Matricule { get => matricule; set => matricule = value; }
@@ -25,12 +29,12 @@ namespace SmartParking.Models
         public string Model { get => model; set => model = value; }
         public string Type { get => type; set => type = value; }
         public string Prix { get => prix; set => prix = value; }
-        public string DateEnreg { get => dateEnreg; set => dateEnreg = value; }
+        public DateTime DateEnreg { get => dateEnreg; set => dateEnreg = value; }
         public string OwenerCin { get => owenerCin; set => owenerCin = value; }
         internal Place PlaceId { get => placeId; set => placeId = value; }
         public string Status { get => status; set => status = value; }
 
-        public Reservation(string matricule, string ownername, string model, string type, string prix, string dateEnreg, string owenerCin, Place placeId, string status)
+        public Reservation(string matricule, string ownername, string model, string type, string prix, DateTime dateEnreg, string owenerCin, Place placeId, string status)
         {
             this.matricule = matricule;
             this.ownername = ownername;
@@ -43,8 +47,12 @@ namespace SmartParking.Models
             this.status = status;
         }
 
+        public Reservation(int id)
+        {
+            this.id = id;
+        }
 
-        public Reservation(int id, Place placeId, string matricule, string ownername, string model, string type, string prix, string dateEnreg, string owenerCin, string status)
+        public Reservation(int id, Place placeId, string matricule, string ownername, string model, string type, string prix, DateTime dateEnreg, string owenerCin, string status)
         {
             this.id = id;
             this.placeId = placeId;

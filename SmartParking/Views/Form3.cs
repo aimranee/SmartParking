@@ -11,6 +11,7 @@ namespace SmartParking.Views
     {
         Form4 form4;
         Form5 form5;
+        Form6 form6;
         private static int nbrPanel = 1;
         Panel myPanel;
         Label myLabel;
@@ -25,6 +26,7 @@ namespace SmartParking.Views
             InitializeComponent();
             form4 = new Form4(this);
             form5 = new Form5(this);
+            form6 = new Form6(this);
 
         }
 
@@ -91,6 +93,7 @@ namespace SmartParking.Views
             if (b != null)
             {
                 Place pl = placeList.Find(x => x.Code == b.Name);
+
                 if (pl.Status == 1)
                 {
                     form4.LabelCode = b.Name;
@@ -99,7 +102,7 @@ namespace SmartParking.Views
 
                         if (pl != null)
                         {
-                            res = new Reservation(form4.Matricule, form4.Fullname, form4.Model, "Auto", "2.00", DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"), form4.Cin, pl, "en coure");
+                            res = new Reservation(form4.Matricule, form4.Fullname, form4.Model, "Auto", "3.00", DateTime.Now, form4.Cin, pl, "en coure");
                             ReservationControlle.AjouterReservation(res);
 
                             pl.Status = 0;
@@ -116,14 +119,16 @@ namespace SmartParking.Views
                 }
                 else
                 {
-                    Place p = PlaceControlle.FindByCode(b.Name);
-                    MessageBox.Show(" id place " + p.Id);
+                    //Place p = PlaceControlle.FindByCode(b.Name);
+                    res = ReservationControlle.CurrentRes(pl);
 
-                    Reservation rr = ReservationControlle.CurrentRes(p);
-                    MessageBox.Show(" matricule : " + rr.Matricule);
                     form5.LabelCode = b.Name;
-                    //MessageBox.Show("" + form5.LabelCode);
-                    //form5.DateD = 
+                    form5.Matricule = res.Matricule;
+                    form5.Model = res.Model;
+                    form5.Cin = res.OwenerCin;
+                    form5.Fillname = res.Ownername;
+                    
+                    form5.DateD = res.DateEnreg;
                     if (pl.Type == "Auto")
                         form5.Cost = 3;
                     if (pl.Type == "Velo")
@@ -137,14 +142,15 @@ namespace SmartParking.Views
 
                         if (pl != null)
                         {
+                            User u = new User(1,"tyui","rtyu","ertyuio", "tyui", "rtyu", "ertyuio");
+                            ticket = new Ticket(res, u, form5.DateF, form5.Total);
 
-                            //ticket = new Ticket(form4.Matricule, form4.Fullname, form4.Model, "Auto", 2.00, DateTime.Now, form4.Cin, pl);
-                            //ReservationControlle.AjouterReservation(res);
+                            pl.Status = 1;
+                            PlaceControlle.UpdatePlace(pl, pl.Id.ToString());
 
-                            //pl.Status = 0;
-                            //PlaceControlle.UpdatePlace(pl, pl.Id.ToString());
-
-                            b.BackgroundImage = Properties.Resources.icons8_parking_close;
+                            b.BackgroundImage = Properties.Resources.icons8_parking_96;
+                            form6.Ticket = ticket;
+                            form6.ShowDialog();
                         }
                         else
                         {
@@ -153,8 +159,6 @@ namespace SmartParking.Views
 
                     }
                 }
-                
-
 
                 //button2.Visible = true;
                 /*button4.Visible = true;
