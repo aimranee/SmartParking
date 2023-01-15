@@ -1,6 +1,7 @@
 ﻿using MySqlConnector;
 using SmartParking.Models;
 using System.Data;
+using System.Security.Policy;
 
 namespace SmartParking.Controllers
 {
@@ -10,7 +11,7 @@ namespace SmartParking.Controllers
         public static void AjouterReservation(Reservation reservation)
         {
             
-            string sql = "INSERT INTO reservation VALUES (null, @placeId, @matricule,@ownername, @model, @type, @prix, @dateEnreg, @ownerCin)";
+            string sql = "INSERT INTO reservation VALUES (null, @placeId, @matricule,@ownername, @model, @type, @prix, @dateEnreg, @ownerCin, @status)";
 
             MySqlCommand cmd = new MySqlCommand(sql, cnn);
             cmd.CommandType = CommandType.Text;
@@ -23,6 +24,7 @@ namespace SmartParking.Controllers
             cmd.Parameters.Add("@prix", MySqlDbType.VarChar).Value = reservation.Prix;
             cmd.Parameters.Add("@dateEnreg", MySqlDbType.VarChar).Value = reservation.DateEnreg;
             cmd.Parameters.Add("@ownerCin", MySqlDbType.VarChar).Value = reservation.OwenerCin;
+            cmd.Parameters.Add("@status", MySqlDbType.VarChar).Value = reservation.Status;
             try
             {
                 cmd.ExecuteNonQuery();
@@ -39,7 +41,7 @@ namespace SmartParking.Controllers
         }
         public static void UpdateReservation(Reservation reservation , string id)
         {
-            string sql = "UPDATE reservation SET  matricule= @matricule,ownername=@ownername,model= @model,type= @type,prix= @prix, dateEnreg=@dateEnreg,ownerCin= @ownerCin where id= @id";
+            string sql = "UPDATE reservation SET  matricule= @matricule,ownername=@ownername,model= @model,type= @type,prix= @prix, dateEnreg=@dateEnreg, ownerCin = @ownerCin, status = @status where id= @id";
 
             MySqlCommand cmd = new MySqlCommand(sql, cnn);
             cmd.CommandType = CommandType.Text;
@@ -51,6 +53,8 @@ namespace SmartParking.Controllers
             cmd.Parameters.Add("@prix", MySqlDbType.VarChar).Value = reservation.Prix;
             cmd.Parameters.Add("@dateEnreg", MySqlDbType.VarChar).Value = reservation.DateEnreg;
             cmd.Parameters.Add("@ownerCin", MySqlDbType.VarChar).Value = reservation.OwenerCin;
+            cmd.Parameters.Add("@status", MySqlDbType.VarChar).Value = reservation.Status;
+
             try
             {
                 cmd.ExecuteNonQuery();
@@ -71,8 +75,7 @@ namespace SmartParking.Controllers
 
             MySqlCommand cmd = new MySqlCommand(sql, cnn);
             cmd.CommandType = CommandType.Text;
-            cmd.Parameters.Add("@id", MySqlDbType.VarChar).Value = idC; ;
-
+            cmd.Parameters.Add("@id", MySqlDbType.VarChar).Value = idC;
 
             try
             {
@@ -86,6 +89,28 @@ namespace SmartParking.Controllers
 
             }
             cnn.Close();
+        }
+
+        public static Reservation CurrentRes(Place p)
+        {
+            Reservation rs = null;
+            string sql = "SELECT * FROM reservation WHERE placeId = '1' and status = 'en coure'";
+            MySqlCommand cmd = new MySqlCommand(sql, cnn);
+
+            try
+            {
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    rs = new Reservation(Int32.Parse(reader["id"].ToString()), p, reader["matricule"].ToString(), reader["ownername"].ToString(), reader["model"].ToString(), reader["type"].ToString(), reader["prix"].ToString(), reader["dateEnreg"].ToString(), reader["owenerCin"].ToString(), reader["status"].ToString());
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error.\n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            cnn.Close();
+            return rs;
         }
 
     }

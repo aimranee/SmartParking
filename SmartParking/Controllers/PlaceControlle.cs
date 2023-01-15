@@ -99,11 +99,32 @@ namespace SmartParking.Controllers
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Device not deleted. \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error. \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             cnn.Close();
             return placeList;
+        }
+
+        public static Place FindByCode (string id)
+        {
+            cnn.Open();
+            Place p = null;
+            string sql = "SELECT * from place where code = '"+id+"'";
+            MySqlCommand cmd = new MySqlCommand(sql, cnn);
+            cmd.CommandType = CommandType.Text;
+            try
+            {
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while(reader.Read())
+                     p = new Place(int.Parse(reader["id"].ToString()), reader["code"].ToString(), int.Parse(reader["status"].ToString()), reader["type"].ToString());
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error. \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            cnn.Close();
+            return p;
         }
     }
 }

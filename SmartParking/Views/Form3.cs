@@ -10,10 +10,12 @@ namespace SmartParking.Views
     public partial class Form3 : Form
     {
         Form4 form4;
+        Form5 form5;
         private static int nbrPanel = 1;
         Panel myPanel;
         Label myLabel;
         Reservation res;
+        Ticket ticket;
         private List<Place> placeList;
         Panel b;
         int X = 3, Y = 3;
@@ -22,6 +24,8 @@ namespace SmartParking.Views
         {
             InitializeComponent();
             form4 = new Form4(this);
+            form5 = new Form5(this);
+
         }
 
         private void initCapt()
@@ -86,26 +90,70 @@ namespace SmartParking.Views
             b = (Panel)sender;
             if (b != null)
             {
-                form4.LabelCode = b.Name;
-                if (form4.ShowDialog() == DialogResult.OK)
+                Place pl = placeList.Find(x => x.Code == b.Name);
+                if (pl.Status == 1)
                 {
-                    Place pl = placeList.Find(x => x.Code == b.Name);
-                    if (pl != null)
+                    form4.LabelCode = b.Name;
+                    if (form4.ShowDialog() == DialogResult.OK)
                     {
-                        res = new Reservation(form4.Matricule, form4.Fullname, form4.Model, "Auto", 2.00, DateTime.Now, form4.Cin, pl);
-                        ReservationControlle.AjouterReservation(res);
-                        
-                        pl.Status = 0;
-                        PlaceControlle.UpdatePlace(pl, pl.Id.ToString());
 
-                        b.BackgroundImage = Properties.Resources.icons8_parking_close;
+                        if (pl != null)
+                        {
+                            res = new Reservation(form4.Matricule, form4.Fullname, form4.Model, "Auto", "2.00", DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"), form4.Cin, pl, "en coure");
+                            ReservationControlle.AjouterReservation(res);
+
+                            pl.Status = 0;
+                            PlaceControlle.UpdatePlace(pl, pl.Id.ToString());
+
+                            b.BackgroundImage = Properties.Resources.icons8_parking_close;
+                        }
+                        else
+                        {
+                            MessageBox.Show("introuvable");
+                        }
+
                     }
-                    else
-                    {
-                        MessageBox.Show("introuvable");
-                    }
-                    
                 }
+                else
+                {
+                    Place p = PlaceControlle.FindByCode(b.Name);
+                    MessageBox.Show(" id place " + p.Id);
+
+                    Reservation rr = ReservationControlle.CurrentRes(p);
+                    MessageBox.Show(" matricule : " + rr.Matricule);
+                    form5.LabelCode = b.Name;
+                    //MessageBox.Show("" + form5.LabelCode);
+                    //form5.DateD = 
+                    if (pl.Type == "Auto")
+                        form5.Cost = 3;
+                    if (pl.Type == "Velo")
+                        form5.Cost = 1;
+                    if (pl.Type == "Moto")
+                        form5.Cost = 2;
+                    if (pl.Type == "Camion")
+                        form5.Cost = 5;
+                    if (form5.ShowDialog() == DialogResult.OK)
+                    {
+
+                        if (pl != null)
+                        {
+
+                            //ticket = new Ticket(form4.Matricule, form4.Fullname, form4.Model, "Auto", 2.00, DateTime.Now, form4.Cin, pl);
+                            //ReservationControlle.AjouterReservation(res);
+
+                            //pl.Status = 0;
+                            //PlaceControlle.UpdatePlace(pl, pl.Id.ToString());
+
+                            b.BackgroundImage = Properties.Resources.icons8_parking_close;
+                        }
+                        else
+                        {
+                            MessageBox.Show("introuvable");
+                        }
+
+                    }
+                }
+                
 
 
                 //button2.Visible = true;
