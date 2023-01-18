@@ -7,11 +7,25 @@ namespace SmartParking.Controllers
 {
     internal class ReservationControlle
     {
-        public static MySqlConnection cnn = Program.GetConnection();
+        public static MySqlConnection GetConnection()
+        {
+            string sql = "datasource=localhost;port=3306;username=root;password=;database=smartparking";
+            MySqlConnection cnn = new MySqlConnection(sql);
+
+            try
+            {
+                cnn.Open();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Can not open connection ! \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return cnn;
+        }
         public static void AjouterReservation(Reservation reservation)
         {
             string sql = "INSERT INTO reservation VALUES (null, @placeId, @matricule,@ownername, @model, @type, @prix, @dateEnreg, @ownerCin, @status)";
-
+            MySqlConnection cnn = GetConnection();
             MySqlCommand cmd = new MySqlCommand(sql, cnn);
             cmd.CommandType = CommandType.Text;
             //cmd.Parameters.Add("@id", MySqlDbType.VarChar).Value = reservation.Id;
@@ -41,7 +55,7 @@ namespace SmartParking.Controllers
         public static void UpdateReservation(Reservation reservation , string id)
         {
             string sql = "UPDATE reservation SET  matricule= @matricule,ownername=@ownername,model= @model,type= @type,prix= @prix, dateEnreg=@dateEnreg, ownerCin = @ownerCin, status = @status where id= @id";
-
+            MySqlConnection cnn = GetConnection();
             MySqlCommand cmd = new MySqlCommand(sql, cnn);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.Add("@id", MySqlDbType.VarChar).Value = id;
@@ -71,7 +85,7 @@ namespace SmartParking.Controllers
         public static void SupprimerReservation(string idC)
         {
             string sql = "DELETE FROM reservation WHERE id = @id ";
-
+            MySqlConnection cnn = GetConnection();
             MySqlCommand cmd = new MySqlCommand(sql, cnn);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.Add("@id", MySqlDbType.VarChar).Value = idC;
@@ -92,10 +106,10 @@ namespace SmartParking.Controllers
 
         public static Reservation CurrentRes(Place p)
         {
-            //cnn.Open();
+            MySqlConnection cnn = GetConnection();
             Reservation rs = new Reservation();
             string sql = "SELECT * FROM reservation WHERE placeId = "+p.Id+" and status = 'en coure'";
-            MySqlCommand cmd = new MySqlCommand(sql, Program.GetConnection());
+            MySqlCommand cmd = new MySqlCommand(sql, cnn);
             
             cmd.CommandType = CommandType.Text;
             try

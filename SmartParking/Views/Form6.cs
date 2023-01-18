@@ -1,9 +1,11 @@
 ﻿using SmartParking.Models;
+using SmartParking.Views.UserController;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,12 +16,30 @@ namespace SmartParking.Views
     public partial class Form6 : Form
     {
         private Ticket ticket;
-        private readonly Form3 _prunt;
+        private readonly ParkingVelo _prunt;
+        private readonly ParkingAuto _prunt1;
+        private readonly ParkingMoto _prunt2;
+        private readonly ParkingCamion _prunt3;
 
-        public Form6(Form3 prunt)
+        public Form6(ParkingVelo prunt)
         {
             InitializeComponent();
-            this._prunt = prunt;
+            _prunt = prunt;
+        }
+        public Form6(ParkingAuto prunt)
+        {
+            InitializeComponent();
+            _prunt1 = prunt;
+        }
+        public Form6(ParkingMoto prunt)
+        {
+            InitializeComponent();
+            _prunt2 = prunt;
+        }
+        public Form6(ParkingCamion prunt)
+        {
+            InitializeComponent();
+            _prunt3 = prunt;
         }
 
         internal Ticket Ticket { get => ticket; set => ticket = value; }
@@ -49,6 +69,22 @@ namespace SmartParking.Views
             richBox.Text += " Matricule : " + ticket.IdRes.Matricule;
 
             richBox.Text += " Total : "+ ticket.Total;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.ShowDialog();
+        }
+
+        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            e.Graphics.DrawString(richBox.Text, new Font("Microsoft sans serif", 18, FontStyle.Bold), Brushes.Black, new Point());
+        }
+
+        private void printPreviewDialog1_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

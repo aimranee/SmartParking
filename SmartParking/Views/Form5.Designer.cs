@@ -60,6 +60,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -207,7 +208,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(238, 461);
+            this.button1.Location = new System.Drawing.Point(167, 461);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(130, 32);
             this.button1.TabIndex = 10;
@@ -389,12 +390,23 @@
             this.label10.TabIndex = 15;
             this.label10.Text = "Paiment";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(368, 461);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(111, 32);
+            this.button2.TabIndex = 16;
+            this.button2.Text = "Annuler";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(626, 517);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.label2);
@@ -456,5 +468,6 @@
         private Label label10;
         private TextBox textBox7;
         private TextBox textBox6;
+        private Button button2;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using SmartParking.Controllers;
 using SmartParking.Models;
+using SmartParking.Views.UserController;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,17 +16,36 @@ namespace SmartParking.Views
     public partial class Form4 : Form
     {
         private string labelCode;
-        private readonly Form3 _prunt;
+        private readonly ParkingVelo _prunt;
+        private readonly ParkingAuto _prunt1;
+        private readonly ParkingMoto _prunt2;
+        private readonly ParkingCamion _prunt3;
         private string matricule;
         private string model;
         private string fullname;
         private string cin;
 
-        public Form4(Form3 prunt)
+        public Form4(ParkingVelo prunt)
         {
             InitializeComponent();
             _prunt = prunt;
         }
+        public Form4(ParkingAuto prunt)
+        {
+            InitializeComponent();
+            _prunt1 = prunt;
+        }
+        public Form4(ParkingMoto prunt)
+        {
+            InitializeComponent();
+            _prunt2 = prunt;
+        }
+        public Form4(ParkingCamion prunt)
+        {
+            InitializeComponent();
+            _prunt3 = prunt;
+        }
+
 
         public string LabelCode { get => labelCode; set => labelCode = value; }
         public string Matricule { get => matricule; set => matricule = value; }

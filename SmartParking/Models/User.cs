@@ -35,6 +35,10 @@ namespace SmartParking.Models
             this.cin = cin;
         }
 
+        public User()
+        {
+        }
+
         public User(string role, string username, string password, string nom, string prenom, string cin)
         {
             this.role = role;

@@ -24,15 +24,15 @@ namespace SmartParking.Views
         public Form3()
         {
             InitializeComponent();
-            form4 = new Form4(this);
+            /*form4 = new Form4(this);
             form5 = new Form5(this);
-            form6 = new Form6(this);
+            form6 = new Form6(this);*/
 
         }
 
         private void initCapt()
         {
-            placeList = PlaceControlle.afficher();
+            //placeList = PlaceControlle.afficher();
             foreach (Place item in placeList)
             {
                 myPanel = new Panel();
@@ -131,13 +131,15 @@ namespace SmartParking.Views
                     form5.DateD = res.DateEnreg;
                     if (pl.Type == "Auto")
                         form5.Cost = 3;
-                    if (pl.Type == "Velo")
+                    if (pl.Type == "getPlaces")
                         form5.Cost = 1;
                     if (pl.Type == "Moto")
                         form5.Cost = 2;
                     if (pl.Type == "Camion")
                         form5.Cost = 5;
-                    if (form5.ShowDialog() == DialogResult.OK)
+
+                    DialogResult dd = form5.ShowDialog();
+                    if (dd == DialogResult.OK)
                     {
 
                         if (pl != null)
@@ -158,37 +160,25 @@ namespace SmartParking.Views
                         }
 
                     }
+                    else if (dd == DialogResult.No)
+                    {
+                        if (pl != null)
+                        {
+                            MessageBox.Show(res.Id.ToString());
+                            ReservationControlle.SupprimerReservation(res.Id.ToString());
+
+                            pl.Status = 1;
+                            PlaceControlle.UpdatePlace(pl, pl.Id.ToString());
+
+                            b.BackgroundImage = Properties.Resources.icons8_parking_96;
+                        }
+                        else
+                        {
+                            MessageBox.Show("introuvable");
+                        }
+                    }
                 }
 
-                //button2.Visible = true;
-                /*button4.Visible = true;
-                pictureBox1.Visible = true;
-                nameDevice = b.Name;
-
-                Panel p = panels.Find(r => r.Name == nameDevice);*/
-
-                /*if (p != null)
-                    MessageBox.Show(p.Name);
-                else
-                    MessageBox.Show("null");*/
-
-                /*dev = DeviceController.getStatus(nameDevice);
-
-                if (dev == 0)
-                {
-                    pictureBox1.Image = Properties.Resources.icons8_off_94;
-                    pictureBox1.Name = "off";
-                }
-                else if (dev == 1)
-                {
-                    pictureBox1.Image = Properties.Resources.icons8_on_94;
-                    pictureBox1.Name = "on";
-
-                }
-                else
-                {
-                    MessageBox.Show("erreur ! \n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }*/
             }
         }
     }

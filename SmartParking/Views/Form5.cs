@@ -1,5 +1,6 @@
 ﻿using SmartParking.Controllers;
 using SmartParking.Models;
+using SmartParking.Views.UserController;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,12 +25,30 @@ namespace SmartParking.Views
         private string cin;
         private string fillname;
         private double total;
-        private readonly Form3 _prunt;
+        private readonly ParkingVelo _prunt;
+        private readonly ParkingAuto _prunt1;
+        private readonly ParkingMoto _prunt2;
+        private readonly ParkingCamion _prunt3;
 
-        public Form5(Form3 prunt)
+        public Form5(ParkingVelo prunt)
         {
             InitializeComponent();
-            this._prunt = prunt;
+            _prunt = prunt;
+        }
+        public Form5(ParkingAuto prunt)
+        {
+            InitializeComponent();
+            _prunt1 = prunt;
+        }
+        public Form5(ParkingMoto prunt)
+        {
+            InitializeComponent();
+            _prunt2 = prunt;
+        }
+        public Form5(ParkingCamion prunt)
+        {
+            InitializeComponent();
+            _prunt3 = prunt;
         }
 
         public string LabelCode { get => labelCode; set => labelCode = value; }
@@ -72,6 +91,12 @@ namespace SmartParking.Views
             total = (dif * cost);
             labelTotal.Text = total.ToString("#.##");
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.No;
+            Hide();
         }
     }
 }

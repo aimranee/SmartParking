@@ -15,11 +15,25 @@ namespace SmartParking.Controllers
     internal class UserControlle
     {
 
-       public static MySqlConnection cnn = Program.GetConnection();
+        public static MySqlConnection GetConnection()
+        {
+            string sql = "datasource=localhost;port=3306;username=root;password=;database=smartparking";
+            MySqlConnection cnn = new MySqlConnection(sql);
+
+            try
+            {
+                cnn.Open();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Can not open connection ! \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return cnn;
+        }
         public static void AjouterUser(User user)
         {
             string sql = "INSERT INTO user VALUES (@id, @role, @username, @password, @nom, @prenom, @cin)";
-            
+            MySqlConnection cnn = GetConnection();
             MySqlCommand cmd = new MySqlCommand(sql, cnn);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.Add("@id", MySqlDbType.VarChar).Value=  user.Id;
@@ -46,7 +60,7 @@ namespace SmartParking.Controllers
         public static void UpdateUser(User user, string id)
         {
             string sql = "UPDATE users SET role = @role, username = @username, password = @password, nom = @nom, prenom = @prenom, nom = @nom     WHERE id = @id ";
-           
+            MySqlConnection cnn = GetConnection();
             MySqlCommand cmd = new MySqlCommand(sql, cnn);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.Add("@id", MySqlDbType.VarChar).Value = id;
@@ -74,7 +88,7 @@ namespace SmartParking.Controllers
         public static void SupprimerUser(string idC)
         {
             string sql = "DELETE FROM user WHERE id = @id ";
-            
+            MySqlConnection cnn = GetConnection();
             MySqlCommand cmd = new MySqlCommand(sql, cnn);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.Add("@id", MySqlDbType.VarChar).Value = idC; ;

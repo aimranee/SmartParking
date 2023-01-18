@@ -63,6 +63,26 @@ namespace SmartParking.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _54068 {
+            get {
+                object obj = ResourceManager.GetObject("54068", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _54474 {
+            get {
+                object obj = ResourceManager.GetObject("54474", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_assistive_technology_96 {
             get {
                 object obj = ResourceManager.GetObject("icons8-assistive-technology-96", resourceCulture);
@@ -86,6 +106,16 @@ namespace SmartParking.Properties {
         internal static System.Drawing.Bitmap icons8_bicycle_96 {
             get {
                 object obj = ResourceManager.GetObject("icons8-bicycle-96", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_damage_64 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-damage-64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -146,6 +176,56 @@ namespace SmartParking.Properties {
         internal static System.Drawing.Bitmap icons8_parking_close {
             get {
                 object obj = ResourceManager.GetObject("icons8-parking-close", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_settings_96 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-settings-96", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Parking_pana {
+            get {
+                object obj = ResourceManager.GetObject("Parking-pana", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Parking_pana__1_ {
+            get {
+                object obj = ResourceManager.GetObject("Parking-pana (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Parking_pana__2_ {
+            get {
+                object obj = ResourceManager.GetObject("Parking-pana (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Parking_pana1 {
+            get {
+                object obj = ResourceManager.GetObject("Parking-pana1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
