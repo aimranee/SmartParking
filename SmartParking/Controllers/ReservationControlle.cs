@@ -131,5 +131,30 @@ namespace SmartParking.Controllers
             return rs;
         }
 
+        public static string AllCurrentRes(string p)
+        {
+            MySqlConnection cnn = GetConnection();
+            string res ="";
+            string sql = "SELECT count(*) from reservation where type = '" + p + "' and status = 'en coure'";
+            MySqlCommand cmd = new MySqlCommand(sql, cnn);
+
+            cmd.CommandType = CommandType.Text;
+            try
+            {
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                    res = reader[0].ToString();
+
+            }
+            catch
+            {
+                MessageBox.Show("Error.\n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            cnn.Close();
+            return res;
+        }
+
     }
 }

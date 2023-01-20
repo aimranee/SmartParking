@@ -113,6 +113,26 @@ namespace SmartParking.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_cycle_67 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-cycle-67", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_cycle_671 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-cycle-671", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_damage_64 {
             get {
                 object obj = ResourceManager.GetObject("icons8-damage-64", resourceCulture);
@@ -126,6 +146,26 @@ namespace SmartParking.Properties {
         internal static System.Drawing.Bitmap icons8_delivery_truck_96 {
             get {
                 object obj = ResourceManager.GetObject("icons8-delivery-truck-96", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_motorbike_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-motorbike-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_motorbike_501 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-motorbike-501", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,9 +223,69 @@ namespace SmartParking.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_plus_math_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-plus-math-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_sedan_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-sedan-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_sedan_501 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-sedan-501", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_settings_96 {
             get {
                 object obj = ResourceManager.GetObject("icons8-settings-96", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_truck_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-truck-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_truck_1001 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-truck-1001", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_update_left_rotation_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-update-left-rotation-48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -226,6 +326,26 @@ namespace SmartParking.Properties {
         internal static System.Drawing.Bitmap Parking_pana1 {
             get {
                 object obj = ResourceManager.GetObject("Parking-pana1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Wavy_Bus_42_Single_05 {
+            get {
+                object obj = ResourceManager.GetObject("Wavy_Bus-42_Single-05", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Wavy_Bus_42_Single_051 {
+            get {
+                object obj = ResourceManager.GetObject("Wavy_Bus-42_Single-051", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

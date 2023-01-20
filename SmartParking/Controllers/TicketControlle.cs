@@ -88,12 +88,14 @@ namespace SmartParking.Controllers
             string sql = "DELETE FROM ticket WHERE id = @id ";
             MySqlConnection cnn = GetConnection();
             MySqlCommand cmd = new MySqlCommand(sql, cnn);
+
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.Add("@id", MySqlDbType.VarChar).Value = idC; ;
 
 
             try
             {
+
                 cmd.ExecuteNonQuery();
                 MessageBox.Show(" supprimer aves success.", "Inforamtion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

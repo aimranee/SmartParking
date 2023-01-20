@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.DataFormats;
 
 namespace SmartParking.Views.UserController
 {
@@ -17,6 +18,7 @@ namespace SmartParking.Views.UserController
         Form4 form4;
         Form5 form5;
         Form6 form6;
+        AutoSetting form1;
         private static int nbrPanel = 1;
         Panel myPanel;
         Label myLabel;
@@ -91,6 +93,16 @@ namespace SmartParking.Views.UserController
         private void ParkingMoto_Load(object sender, EventArgs e)
         {
             getPlaces();
+
+                pictureBox1.Visible = true;
+            
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            //form1.Type = "Moto";
+            form1.BringToFront();
+            form1.ShowDialog();
         }
 
         void b_Click(object sender, EventArgs e)

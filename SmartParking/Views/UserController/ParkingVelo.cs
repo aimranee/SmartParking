@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.DataFormats;
 
 namespace SmartParking.Views.UserController
 {
@@ -17,6 +18,7 @@ namespace SmartParking.Views.UserController
         Form4 form4;
         Form5 form5;
         Form6 form6;
+        Form1 form1;
         private static int nbrPanel = 1;
         Panel myPanel;
         Label myLabel;
@@ -90,6 +92,19 @@ namespace SmartParking.Views.UserController
         private void ParkingVelo_Load(object sender, EventArgs e)
         {
             getPlaces();
+            //Dashboard home = new Dashboard();
+            //if (home.User.Id == 1)
+            //{
+                pictureBox1.Visible = true;
+            //}
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            form1 = new Form1();
+            form1.Type = "Velo";
+            form1.BringToFront();
+            form1.ShowDialog();
         }
 
         void b_Click(object sender, EventArgs e)
@@ -107,7 +122,7 @@ namespace SmartParking.Views.UserController
 
                         if (pl != null)
                         {
-                            res = new Reservation(form4.Matricule, form4.Fullname, form4.Model, "Velo", "2.00", DateTime.Now, form4.Cin, pl, "en coure");
+                            res = new Reservation(form4.Matricule, form4.Fullname, form4.Model, "Velo", "1.00", DateTime.Now, form4.Cin, pl, "en coure");
                             ReservationControlle.AjouterReservation(res);
 
                             pl.Status = 0;

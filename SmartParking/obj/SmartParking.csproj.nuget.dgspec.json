@@ -47,6 +47,10 @@
             "MySqlConnector": {
               "target": "Package",
               "version": "[2.2.5, )"
+            },
+            "ScottPlot.WinForms": {
+              "target": "Package",
+              "version": "[4.1.60, )"
             }
           },
           "imports": [

@@ -18,6 +18,8 @@ namespace SmartParking.Views.UserController
         Form4 form4;
         Form5 form5;
         Form6 form6;
+        Form1 form1;
+        AutoSetting form;
         private static int nbrPanel = 1;
         Panel myPanel;
         Label myLabel;
@@ -91,6 +93,16 @@ namespace SmartParking.Views.UserController
         private void ParkingAuto_Load(object sender, EventArgs e)
         {
             getPlaces();
+                pictureBox1.Visible = true;
+            
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            AutoSetting form = new AutoSetting();
+            //form.Type = "Auto";
+            form.BringToFront();
+            form.ShowDialog();
         }
 
         void b_Click(object sender, EventArgs e)

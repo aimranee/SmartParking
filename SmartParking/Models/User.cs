@@ -24,6 +24,11 @@ namespace SmartParking.Models
         public string Prenom { get => prenom; set => prenom = value; }
         public string Cin { get => cin; set => cin = value; }
 
+        public User(int id)
+        {
+            this.id = id;
+        }
+
         public User(int id, string role, string username, string password, string nom, string prenom, string cin)
         {
             this.id = id;

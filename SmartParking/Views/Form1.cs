@@ -10,8 +10,9 @@ using System.Collections.Generic;
 using System;
 using System.Drawing;
 using System.Runtime.Serialization.Formatters;
+using SmartParking.Views.UserController;
 
-namespace SmartParking
+namespace SmartParking.Views
 {
     public partial class Form1 : Form
     {
@@ -21,9 +22,12 @@ namespace SmartParking
         private List<Place> placeList;
         Panel b;
         string n = "";
-        private bool a = false;
         int X = 3, Y = 3;
         List<Panel> panels = new List<Panel>();
+        private string type = "Auto";
+
+
+        public string Type { get => type; set => type = value; }
 
         public Form1()
         {
@@ -32,7 +36,7 @@ namespace SmartParking
 
         private void initCapt()
         {
-            //placeList = PlaceControlle.afficher();
+            placeList = PlaceControlle.afficher(type);
             foreach (Place item in placeList)
             {
                 myPanel = new Panel();
@@ -70,7 +74,6 @@ namespace SmartParking
 
                 if (item.Status == 0)
                 {
-
                     myPanel.BackgroundImage = Properties.Resources.icons8_parking_close;
                 }
                 else
@@ -82,7 +85,6 @@ namespace SmartParking
                 nbrPanel++;
             }
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             Panel p = panels.Find(r => r.Name == b.Name);
@@ -93,7 +95,6 @@ namespace SmartParking
                 panels.Remove(p);
                 button2.Visible = false;
                 panel1.Refresh();
-
 
                 PlaceControlle.SupprimerPlace(pl.Id.ToString());
 
@@ -174,6 +175,11 @@ namespace SmartParking
             }
         }
 
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
         void b_Click(object sender, EventArgs e)
         {
             b = (Panel)sender;
@@ -181,8 +187,6 @@ namespace SmartParking
             {
 
                 button2.Visible = true;
-
-
 
             }
         }

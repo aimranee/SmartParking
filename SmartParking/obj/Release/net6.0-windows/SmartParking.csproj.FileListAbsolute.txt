@@ -1,6 +1,5 @@
 C:\Users\aimra\source\repos\SmartParking\SmartParking\obj\Release\net6.0-windows\SmartParking.csproj.AssemblyReference.cache
 C:\Users\aimra\source\repos\SmartParking\SmartParking\obj\Release\net6.0-windows\SmartParking.Properties.Resources.resources
-C:\Users\aimra\source\repos\SmartParking\SmartParking\obj\Release\net6.0-windows\SmartParking.Form1.resources
 C:\Users\aimra\source\repos\SmartParking\SmartParking\obj\Release\net6.0-windows\SmartParking.Views.Form3.resources
 C:\Users\aimra\source\repos\SmartParking\SmartParking\obj\Release\net6.0-windows\SmartParking.Views.Form4.resources
 C:\Users\aimra\source\repos\SmartParking\SmartParking\obj\Release\net6.0-windows\SmartParking.Views.Form5.resources
@@ -34,3 +33,9 @@ C:\Users\aimra\source\repos\SmartParking\SmartParking\obj\Release\net6.0-windows
 C:\Users\aimra\source\repos\SmartParking\SmartParking\obj\Release\net6.0-windows\SmartParking.Views.AutoSetting.resources
 C:\Users\aimra\source\repos\SmartParking\SmartParking\obj\Release\net6.0-windows\SmartParking.Views.UserController.ParkingCamion.resources
 C:\Users\aimra\source\repos\SmartParking\SmartParking\obj\Release\net6.0-windows\SmartParking.Views.UserController.ParkingMoto.resources
+C:\Users\aimra\source\repos\SmartParking\SmartParking\obj\Release\net6.0-windows\SmartParking.Views.Form1.resources
+C:\Users\aimra\source\repos\SmartParking\SmartParking\bin\Release\net6.0-windows\ScottPlot.dll
+C:\Users\aimra\source\repos\SmartParking\SmartParking\bin\Release\net6.0-windows\ScottPlot.WinForms.dll
+C:\Users\aimra\source\repos\SmartParking\SmartParking\obj\Release\net6.0-windows\SmartParking.Views.Login.resources
+C:\Users\aimra\source\repos\SmartParking\SmartParking\obj\Release\net6.0-windows\SmartParking.Views.UserController.Employee.resources
+C:\Users\aimra\source\repos\SmartParking\SmartParking\obj\Release\net6.0-windows\SmartParking.Views.UserController.Home.resources

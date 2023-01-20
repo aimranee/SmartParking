@@ -1,4 +1,5 @@
-﻿using SmartParking.Views.UserController;
+﻿using SmartParking.Models;
+using SmartParking.Views.UserController;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,10 +15,13 @@ namespace SmartParking
 {
     public partial class Dashboard : Form
     {
-        public Dashboard()
+        private User user;
+
+        internal User User { get => user; set => user = value; }
+
+        public Dashboard()          
         {
             InitializeComponent();
-            
         }
 
         private void addUserControl( UserControl userControl)
@@ -30,7 +34,8 @@ namespace SmartParking
 
         private void button5_Click(object sender, EventArgs e)
         {
-            
+            Home h = new Home();
+            addUserControl(h);
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -72,6 +77,16 @@ namespace SmartParking
         {
             ParkingCamion pc = new ParkingCamion();
             addUserControl(pc);
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelContainer_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
